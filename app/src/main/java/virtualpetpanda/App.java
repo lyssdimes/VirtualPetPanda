@@ -16,7 +16,8 @@ public class App {
         int panHungerLevel = pan.getHunger();
         int panThirstLevel = pan.getThirst();
         int panBoredomLevel = pan.getBoredom();
-        System.out.println("Meet Pan, the panda! \n - -\n(o.o)\n.. ..");
+        System.out.println(
+                "Meet Pan, the panda! \n  {__}____{__}\n  /          \\  \n  [ (@)     (@)  \n   \\   ( x ) / \n  < [       ] >");
         System.out.println("He is very high maintenance.");
         System.out.println("If his hunger, thirst, or boredom reaches 100, he will die.");
         System.out.println("...& you will be a panda murderer (but no pressure)!");

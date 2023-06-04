@@ -35,7 +35,7 @@ public class VirtualPanda {
         return panNewThirst;
     }
     public int play(VirtualPanda pan){
-        int panCurrentBoredom = getBoredom();
+        int panCurrentBoredom = pan.getBoredom();
         int panNewBoredom = panCurrentBoredom - 10;
         return panNewBoredom;
     }
