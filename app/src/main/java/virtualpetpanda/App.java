@@ -7,6 +7,8 @@ import java.util.Scanner;
 
 public class App {
 
+    // figure out tick next
+
     public static void main(String[] args) {
         boolean deadPanda = false;
         Scanner input = new Scanner(System.in);
