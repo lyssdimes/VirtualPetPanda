@@ -1,10 +1,13 @@
 package virtualpetpanda;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class VirtualPanda {
     private int hunger = 10;
     private int thirst = 10;
     private int boredom = 10;
-
+    private Timer timer;
 
     public int getHunger() {
         return hunger;
@@ -22,23 +25,40 @@ public class VirtualPanda {
         this.hunger = hunger;
         this.thirst = thirst;
         this.boredom = boredom;
+        timer = new Timer();
     }
 
-    public int feed(VirtualPanda pan){
-        int panCurrentHunger = pan.getHunger();
-        int panNewHunger = panCurrentHunger - 10;
-        return panNewHunger;
-    }
-    public int drink(VirtualPanda pan){
-        int panCurrentThirst = pan.getThirst();
-        int panNewThirst = panCurrentThirst - 10;
-        return panNewThirst;
-    }
-    public int play(VirtualPanda pan){
-        int panCurrentBoredom = pan.getBoredom();
-        int panNewBoredom = panCurrentBoredom - 10;
-        return panNewBoredom;
+    public void feed() {
+        hunger -= 10;
+        if (hunger < 0) {
+            hunger = 0;
+        }
     }
 
+    public void drink() {
+        thirst -= 10;
+        if (thirst < 0) {
+            thirst = 0;
+        }
+    }
 
+    public void play() {
+        boredom -= 10;
+        if (boredom < 0) {
+            boredom = 0;
+        }
+    }
+
+    public void startCloserToDeath() {
+        timer.schedule(new CloserToDeathTimeLoop(), 0, 6000);
+    }
+
+    private class CloserToDeathTimeLoop extends TimerTask {
+        @Override
+        public void run() {
+            hunger += 10;
+            thirst += 10;
+            boredom += 10;
+        }
+    }
 }

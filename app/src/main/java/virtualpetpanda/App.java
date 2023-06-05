@@ -13,14 +13,19 @@ public class App {
         boolean deadPanda = false;
         Scanner input = new Scanner(System.in);
         VirtualPanda pan = new VirtualPanda(10, 10, 10);
-        int panHungerLevel = pan.getHunger();
-        int panThirstLevel = pan.getThirst();
-        int panBoredomLevel = pan.getBoredom();
-        System.out.println(
-                "Meet Pan, the panda! \n  {__}____{__}\n  /          \\  \n  [ (@)     (@)  \n   \\   ( x ) / \n  < [       ] >");
+        pan.startCloserToDeath();
+        System.out.println("Meet Pan, the panda!");
+        System.out.println("");
+        System.out.println("  {__}____{__}");
+        System.out.println("  /          \\  ");
+        System.out.println("  [ (@)     (@)  ");
+        System.out.println("   \\   ( x ) / ");
+        System.out.println("  < [       ] >");
+        System.out.println("");
         System.out.println("He is very high maintenance.");
         System.out.println("If his hunger, thirst, or boredom reaches 100, he will die.");
         System.out.println("...& you will be a panda murderer (but no pressure)!");
+        System.out.println("");
 
         do {
             System.out.println("What would you like to do for Pan?");
@@ -28,28 +33,33 @@ public class App {
             System.out.println("2 -- Give him a matcha latte");
             System.out.println("3 -- Play with him on the bamboo slide");
             int userInput = input.nextInt();
-            if (panHungerLevel >= 100 || panThirstLevel >= 100 || panBoredomLevel >= 100) {
-                System.out.println("  " +
-                        "  _____ \n" +
-                        " /     \\ \n" +
-                        "| () () | \n" +
-                        " \\ ^  / \n" +
-                        "  |||||");
+            if (pan.getHunger() >= 100 || pan.getThirst() >= 100 || pan.getBoredom() >= 100) {
+                System.out.println("");
+                System.out.println("  {__}____{__}");
+                System.out.println("  /          \\  ");
+                System.out.println("  [ (X)     (X)  ");
+                System.out.println("   \\   ( x ) / ");
+                System.out.println("  < [  dead  ] >");
+                System.out.println("");
                 deadPanda = true;
                 System.out.println("You know pandas are endangered, right?");
                 System.out.println("Yeesh, I guess not everyone is an animal lover.");
-            }
-            if (userInput == 1) {
-                panHungerLevel = pan.feed(pan);
-                System.out.println("Current hunger level: " + panHungerLevel + " out of 100");
+            } else if (userInput == 1) {
+                pan.feed();
+                System.out.println("Current hunger level: " + pan.getHunger() + " out of 100");
+                System.out.println("Current thirst level: " + pan.getThirst() + " out of 100");
+                System.out.println("Current boredom level: " + pan.getBoredom() + " out of 100");
             } else if (userInput == 2) {
-                panThirstLevel = pan.drink(pan);
-                System.out.println("Current thirst level: " + panThirstLevel + " out of 100");
+                pan.drink();
+                System.out.println("Current thirst level: " + pan.getThirst() + " out of 100");
+                System.out.println("Current hunger level: " + pan.getHunger() + " out of 100");
+                System.out.println("Current boredom level: " + pan.getBoredom() + " out of 100");
 
             } else if (userInput == 3) {
-                panBoredomLevel = pan.play(pan);
-                System.out.println("Current boredom level: " + panBoredomLevel + " out of 100");
-
+                pan.play();
+                System.out.println("Current boredom level: " + pan.getBoredom() + " out of 100");
+                System.out.println("Current hunger level: " + pan.getHunger() + " out of 100");
+                System.out.println("Current thirst level: " + pan.getThirst() + " out of 100");
             }
         } while (!deadPanda);
         input.close();
