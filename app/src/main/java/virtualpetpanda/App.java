@@ -12,6 +12,9 @@ public class App {
         Scanner input = new Scanner(System.in);
         VirtualPanda pan = new VirtualPanda(10, 10, 10);
         pan.startCloserToDeath();
+        pan.startAutoHealth();
+        System.out.println("~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*");
+        System.out.println("");
         System.out.println("Meet Pan, the panda!");
         System.out.println("");
         System.out.println("  {__}____{__}");
@@ -21,17 +24,22 @@ public class App {
         System.out.println("  < [       ] >");
         System.out.println("");
         System.out.println("He is very high maintenance.");
-        System.out.println("If his hunger, thirst, or boredom reaches 100, he will die.");
-        System.out.println("...& you will be a panda murderer (but no pressure)!");
+        System.out.println("If his hunger, thirst, or boredom reaches 100, he will die");
+        System.out.println("& you will be a panda murderer...but no pressure!");
         System.out.println("");
 
         do {
+            System.out.println("~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*");
+            System.out.println("");
             System.out.println("What would you like to do for Pan?");
-            System.out.println("1 -- Feed him pandan toast");
-            System.out.println("2 -- Give him a matcha latte");
-            System.out.println("3 -- Play with him on the bamboo slide");
+            System.out.println("1 -- Feed him some tasty pandan toast");
+            System.out.println("2 -- Give him a matcha latte to drink");
+            System.out.println("3 -- Play hide & seek in the bamboo forest");
+            System.out.println("");
+            System.out.println("~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*");
             int userInput = input.nextInt();
             if (pan.getHunger() >= 100 || pan.getThirst() >= 100 || pan.getBoredom() >= 100) {
+                deadPanda = true;
                 System.out.println("");
                 System.out.println("  {__}____{__}");
                 System.out.println("  /          \\  ");
@@ -39,25 +47,49 @@ public class App {
                 System.out.println("   \\   ( x ) / ");
                 System.out.println("  < [  dead  ] >");
                 System.out.println("");
-                deadPanda = true;
                 System.out.println("You know pandas are endangered, right?");
                 System.out.println("Yeesh, I guess not everyone is an animal lover.");
+                System.out.println("");
+                System.out.println("~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*");
             } else if (userInput == 1) {
                 pan.feed();
-                System.out.println("Current hunger level: " + pan.getHunger() + " out of 100");
-                System.out.println("Current thirst level: " + pan.getThirst() + " out of 100");
-                System.out.println("Current boredom level: " + pan.getBoredom() + " out of 100");
+                System.out.println("");
+                System.out.println("  {__}____{__}");
+                System.out.println("  /          \\  ");
+                System.out.println("  [ (<3)   (<3)  ");
+                System.out.println("   \\   (x)  / ");
+                System.out.println("  < [mm toast] > [ 3 ");
+                System.out.println("");
+                System.out.println("Hunger: " + pan.getHunger() + "/100");
+                System.out.println("Thirst: " + pan.getThirst() + "/100");
+                System.out.println("Boredom: " + pan.getBoredom() + "/100");
+                System.out.println("");
             } else if (userInput == 2) {
                 pan.drink();
-                System.out.println("Current thirst level: " + pan.getThirst() + " out of 100");
-                System.out.println("Current hunger level: " + pan.getHunger() + " out of 100");
-                System.out.println("Current boredom level: " + pan.getBoredom() + " out of 100");
+                System.out.println("");
+                System.out.println("  {__}____{__}");
+                System.out.println("  /          \\  ");
+                System.out.println("  [ (<3)   (<3)  ");
+                System.out.println("   \\   (x)  /    ~~");
+                System.out.println("  < [tasteaaa] > [ ]");
+                System.out.println("");
+                System.out.println("Thirst: " + pan.getThirst() + "/100");
+                System.out.println("Hunger: " + pan.getHunger() + "/100");
+                System.out.println("Boredom: " + pan.getBoredom() + "/100");
+                System.out.println("");
 
             } else if (userInput == 3) {
                 pan.play();
-                System.out.println("Current boredom level: " + pan.getBoredom() + " out of 100");
-                System.out.println("Current hunger level: " + pan.getHunger() + " out of 100");
-                System.out.println("Current thirst level: " + pan.getThirst() + " out of 100");
+                System.out.println("| | | {__}____{__} |  | |");
+                System.out.println("| | | /          \\ |  | |");
+                System.out.println("| | | [ (<3)   (<3)|  | |");
+                System.out.println("| | |  \\   (x)  /  |  | |");
+                System.out.println("| | |< [pantastic] >  | |");
+                System.out.println("");
+                System.out.println("Boredom: " + pan.getBoredom() + "/100");
+                System.out.println("Hunger: " + pan.getHunger() + "/100");
+                System.out.println("Thirst: " + pan.getThirst() + "/100");
+                System.out.println("");
             }
         } while (!deadPanda);
         input.close();
