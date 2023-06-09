@@ -22,7 +22,7 @@ public class VirtualPanda {
         return boredom;
     }
 
-    public VirtualPanda(int hunger, int thirst, int boredom) {
+    public VirtualPanda(int thirst, int hunger, int boredom) {
         this.hunger = hunger;
         this.thirst = thirst;
         this.boredom = boredom;
